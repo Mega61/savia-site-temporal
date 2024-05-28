@@ -7,6 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        greenSavia: '#00E4AC',
+        darkGreenSavia: '#002938',
+        greySavia: '#8D8D8D',
+        whiteSavia: '#F9F9F9'
+      },
       fontFamily: {
         inter: ['var(--font-inter)', 'sans-serif'],
         'inter-tight': ['var(--font-inter-tight)', 'sans-serif']

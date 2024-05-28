@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Home - Creative',
-  description: 'Page description',
+  title: 'Savia',
+  description: 'Savia is a robust Order Management System (OMS) designed to streamline your omnichannel operations',
 }
 
 import Hero from '@/components/hero'
@@ -16,10 +16,8 @@ export default function Home() {
     <>
       <Hero />
       <Features01 />
-      <Features02 />
-      <Features03 />
       <PricingTabs />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Cta />
     </>
   )

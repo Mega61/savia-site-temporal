@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import Logo from '@/public/images/logo.png'
+import Logo from '@/public/images/logo-02.png'
 
 export default function Footer() {
   return (
@@ -14,11 +14,11 @@ export default function Footer() {
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-6 max-sm:order-1 flex flex-col">
             <div className="mb-4">
               {/* Logo */}
-              <Link className="flex items-center justify-center bg-white w-8 h-8 rounded shadow-sm shadow-zinc-950/20" href="/">
+              <Link className="flex items-center justify-left" href="/">
                 <Image src={Logo} width={24} height={24} alt="Logo" />
               </Link>
             </div>
-            <div className="grow text-sm text-zinc-500">&copy; Cruip.com. All rights reserved.</div>
+            <div className="grow text-sm text-zinc-500">&copy; Savia.co All rights reserved.</div>
             {/* Social links */}
             <ul className="flex space-x-4 mt-4 mb-1">
               <li>
