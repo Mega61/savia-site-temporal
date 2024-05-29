@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Savia',
+  title: 'Savia - Optimize Every Order, Every Channel',
   description: 'Savia is a robust Order Management System (OMS) designed to streamline your omnichannel operations',
 }
 

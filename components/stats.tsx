@@ -1,5 +1,7 @@
-import Counter from '@/components/counter'
+"use client"
 
+import Counter from '@/components/counter'
+import { useTranslation } from '../app/utils/getTranslation'
 interface StatProps {
   number: number
   suffix: string
@@ -8,16 +10,18 @@ interface StatProps {
 
 export default function Stats() {
 
+  const t = useTranslation()
+
   const stats: StatProps[] = [
     {
       number: 33,
       suffix: '%',
-      text: 'Cut Down on Invoice Errors.',
+      text: t.stat_1,
     },
     {
       number: 350,
       suffix: '%',
-      text: 'Boosted Service Performance.',
+      text: t.stat_2,
     }
     // {
     //   number: 1.5,
