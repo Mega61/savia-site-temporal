@@ -1,8 +1,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '@/public/images/logo.png'
+import { useTranslation } from '../../app/utils/getTranslation'
 
 export default function Header() {
+
+  const t = useTranslation()
+
   return (
     <header className="absolute top-2 md:top-6 w-full z-30">
       <div className="px-4 sm:px-6">
@@ -27,7 +31,7 @@ export default function Header() {
                   {/* <Link className="text-sm font-medium text-zinc-500 hover:text-zinc-900 px-3 lg:px-5 py-2 flex items-center transition" href="/login">Log in</Link> */}
                 </li>
                 <li className="ml-1">
-                  <Link className="btn-sm text-zinc-100 bg-darkGreenSavia hover:bg-zinc-800 w-full shadow" href="/request-demo">Request Demo</Link>
+                  <Link className="btn-sm text-zinc-100 bg-darkGreenSavia hover:bg-greenSavia w-full shadow" href="/request-demo">{t.request_demo_btn}</Link>
                 </li>
               </ul>
 
