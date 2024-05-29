@@ -6,8 +6,12 @@ import Image from 'next/image'
 import PricingDecoration from '@/public/images/pricing-decoration.png'
 import Tooltip from '@/components/tooltip'
 import Accordion from '@/components/accordion'
+import { useTranslation } from '../app/utils/getTranslation'
 
 export default function PricingTabs() {
+
+  const t = useTranslation()
+
   const prices = [
     {
       contacts: '1K',
@@ -28,9 +32,9 @@ export default function PricingTabs() {
     {
       contacts: '10K',
       plans: {
-        essential: '39.99',
-        premium: '74.99',
-        enterprise: '189.99'
+        essential: t.pricing_tier1_price_text,
+        premium: t.pricing_tier2_price_text,
+        enterprise: t.pricing_tier3_price_text
       }
     },
     {
@@ -103,8 +107,8 @@ export default function PricingTabs() {
       <div className="py-12 md:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="relative max-w-3xl mx-auto text-center pb-12">
-            <h2 className="font-inter-tight text-3xl md:text-4xl font-bold text-darkGreenSavia mb-4">Optimize Every Order, Every Channel.</h2>
-            <p className="text-lg text-greySavia">Experience Seamless Order Processing for low investment. Upgrade for Advanced Features</p>
+            <h2 className="font-inter-tight text-3xl md:text-4xl font-bold text-darkGreenSavia mb-4">{t.pricing_title_text}</h2>
+            <p className="text-lg text-greySavia">{t.pricing_sub_text}</p>
           </div>
 
           {/* Pricing tabs component */}
@@ -132,31 +136,31 @@ export default function PricingTabs() {
               <div className="h-full">
                 <div className="relative flex flex-col h-full p-6 rounded-lg border border-transparent [background:linear-gradient(theme(colors.zinc.50),theme(colors.zinc.50))_padding-box,linear-gradient(120deg,theme(colors.zinc.300),theme(colors.zinc.100),theme(colors.zinc.300))_border-box]">
                   <div className="mb-4">
-                    <div className="text-lg text-darkGreenSavia font-semibold mb-1">Essential</div>
+                    <div className="text-lg text-darkGreenSavia font-semibold mb-1">{t.pricing_tier1_title_text}</div>
                     <div className="font-inter-tight inline-flex items-baseline mb-2">
                       <span className="text-darkGreenSavia font-bold text-2xl">$</span>
                       <span className="text-darkGreenSavia font-bold text-3xl">{prices[tier].plans.essential}</span>
-                      <span className="text-greySavia font-medium">/mo</span>
+                      <span className="text-greySavia font-medium">{t.pricing_price_suffix_text}</span>
                     </div>
-                    <div className="text-greySavia">Perfect for small businesses seeking to enhance their order management.</div>
+                    <div className="text-greySavia">{t.pricing_tier1_description_text}</div>
                   </div>
                   <div className="grow">
-                    <div className="text-sm text-darkGreenSavia font-medium mb-4">Includes:</div>
+                    <div className="text-sm text-darkGreenSavia font-medium mb-4">{t.pricing_features_presentation_text}</div>
                     <ul className="text-zinc-600 dark:text-zinc-400 text-sm space-y-3 grow">
                       <li className="flex items-center">
                         <svg className="w-3 h-3 fill-greenSavia mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                           <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                         </svg>
-                        <Tooltip id="01" content="Supports up to 100 monthly users for optimal performance and scalability.">
-                          100 monthly orders
+                        <Tooltip id="01" content={t.pricing_tier1_feature1_tooltip_text}>
+                          {t.pricing_tier1_feature1_text}
                         </Tooltip>
                       </li>
                       <li className="flex items-center">
                         <svg className="w-3 h-3 fill-greenSavia mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                           <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                         </svg>
-                        <Tooltip id="02" content="Access to all the features within the OMS including hand-on-hand support.">
-                          Full access to all the features.
+                        <Tooltip id="02" content={t.pricing_tier1_feature2_tooltip_text}>
+                          {t.pricing_tier1_feature2_text}
                         </Tooltip>
                       </li>
                       {/* <li className="flex items-center">
@@ -195,7 +199,7 @@ export default function PricingTabs() {
                   </div>
                   <div className="mt-8">
                     <a className="btn text-zinc-100 bg-gradient-to-r from-greenSavia to-greenSavia hover:from-darkGreenSavia hover:to-darkGreenSavia w-full shadow" href="#0">
-                      Select plan
+                      {t.pricing_features_button_text}
                     </a>
                   </div>
                 </div>
@@ -206,31 +210,31 @@ export default function PricingTabs() {
                 <div className="relative flex flex-col h-full p-6 rounded-lg bg-darkGreenSavia">
                   {/* <Image className="absolute right-6 -top-5 mix-blend-exclusion" src={PricingDecoration} alt="Pricing decoration" width={76} height={74} aria-hidden="true" /> */}
                   <div className="mb-4">
-                    <div className="text-lg text-zinc-200 font-semibold mb-1">Premium</div>
+                    <div className="text-lg text-zinc-200 font-semibold mb-1">{t.pricing_tier2_title_text}</div>
                     <div className="font-inter-tight inline-flex items-baseline mb-2">
                       <span className="text-zinc-200 font-bold text-2xl">$</span>
                       <span className="text-zinc-200 font-bold text-3xl">{prices[tier].plans.premium}</span>
-                      <span className="text-greySavia font-medium">/mo</span>
+                      <span className="text-greySavia font-medium">{t.pricing_price_suffix_text}</span>
                     </div>
-                    <div className="text-greySavia">Ideal for growing businesses that need comprehensive control and support.</div>
+                    <div className="text-greySavia">{t.pricing_tier2_description_text}</div>
                   </div>
                   <div className="grow">
-                    <div className="text-sm text-zinc-200 font-medium mb-4">Includes:</div>
+                    <div className="text-sm text-zinc-200 font-medium mb-4">{t.pricing_features_presentation_text}</div>
                     <ul className="text-zinc-600 dark:text-zinc-400 text-sm space-y-3 grow">
                       <li className="flex items-center">
                         <svg className="w-3 h-3 fill-greenSavia mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                           <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                         </svg>
-                        <Tooltip id="07" content="Supports up to 1,000 monthly users for optimal performance and scalability." dark>
-                          1,000 monthly orders
+                        <Tooltip id="07" content={t.pricing_tier2_feature1_tooltip_text} dark>
+                          {t.pricing_tier2_feature1_text}
                         </Tooltip>
                       </li>
                       <li className="flex items-center">
                         <svg className="w-3 h-3 fill-greenSavia mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                           <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                         </svg>
-                        <Tooltip id="08" content="Access to all the features within the OMS including hand-on-hand support." dark>
-                          Full access to all the features.
+                        <Tooltip id="08" content={t.pricing_tier2_feature2_tooltip_text} dark>
+                          {t.pricing_tier2_feature2_text}
                         </Tooltip>
                       </li>
                       {/* <li className="flex items-center">
@@ -269,7 +273,7 @@ export default function PricingTabs() {
                   </div>
                   <div className="mt-8">
                     <a className="btn text-darkGreenSavia bg-white hover:text-greenSavia w-full shadow" href="#0">
-                      Select plan
+                      {t.pricing_features_button_text}
                     </a>
                   </div>
                 </div>
@@ -279,31 +283,31 @@ export default function PricingTabs() {
               <div className="h-full">
                 <div className="relative flex flex-col h-full p-6 rounded-lg border border-transparent [background:linear-gradient(theme(colors.zinc.50),theme(colors.zinc.50))_padding-box,linear-gradient(120deg,theme(colors.zinc.300),theme(colors.zinc.100),theme(colors.zinc.300))_border-box]">
                   <div className="mb-4">
-                    <div className="text-lg text-darkGreenSavia font-semibold mb-1">Enterprise</div>
+                    <div className="text-lg text-darkGreenSavia font-semibold mb-1">{t.pricing_tier3_title_text}</div>
                     <div className="font-inter-tight inline-flex items-baseline mb-2">
                       <span className="text-darkGreenSavia font-bold text-2xl">$</span>
                       <span className="text-darkGreenSavia font-bold text-3xl">{prices[tier].plans.enterprise}</span>
-                      <span className="text-greySavia font-medium">/mo</span>
+                      <span className="text-greySavia font-medium">{t.pricing_price_suffix_text}</span>
                     </div>
-                    <div className="text-greySavia">Designed for enterprises requiring advanced features and dedicated support.</div>
+                    <div className="text-greySavia">{t.pricing_tier3_description_text}</div>
                   </div>
                   <div className="grow">
-                    <div className="text-sm text-darkGreenSavia font-medium mb-4">Includes:</div>
+                    <div className="text-sm text-darkGreenSavia font-medium mb-4">{t.pricing_features_presentation_text}</div>
                     <ul className="text-zinc-600 dark:text-zinc-400 text-sm space-y-3 grow">
                       <li className="flex items-center">
                         <svg className="w-3 h-3 fill-greenSavia mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                           <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                         </svg>
-                        <Tooltip id="13" content="Supports up to 2,500 monthly users for optimal performance and scalability.">
-                          2,500 monthly orders
+                        <Tooltip id="13" content={t.pricing_tier3_feature1_tooltip_text}>
+                          {t.pricing_tier3_feature1_text}
                         </Tooltip>
                       </li>
                       <li className="flex items-center">
                         <svg className="w-3 h-3 fill-greenSavia mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                           <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                         </svg>
-                        <Tooltip id="14" content="Access to all the features within the OMS including hand-on-hand support.">
-                          Full access to all the features.
+                        <Tooltip id="14" content={t.pricing_tier3_feature2_tooltip_text}>
+                          {t.pricing_tier3_feature2_text}
                         </Tooltip>
                       </li>
 
@@ -343,7 +347,7 @@ export default function PricingTabs() {
                   </div>
                   <div className="mt-8">
                     <a className="btn text-zinc-100 bg-gradient-to-r from-greenSavia to-greenSavia hover:from-darkGreenSavia hover:to-darkGreenSavia w-full shadow" href="#0">
-                      Select plan
+                      {t.pricing_features_button_text}
                     </a>
                   </div>
                 </div>
