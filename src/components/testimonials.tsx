@@ -1,5 +1,5 @@
 'use client'
-import Testimonial from '@/components/testimonial'
+import Testimonial from '@/src/components/testimonial'
 import TestimonialImg01 from '@/public/images/testimonial-01.jpg'
 import TestimonialImg02 from '@/public/images/testimonial-02.jpg'
 import TestimonialImg03 from '@/public/images/testimonial-03.jpg'
