@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl'
 
 export default function Features02() {
 
-  const t = useTranslations()
+  const t = useTranslations("index")
 
   return (
     <section>

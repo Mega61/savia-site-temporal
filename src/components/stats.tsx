@@ -10,7 +10,7 @@ interface StatProps {
 
 export default function Stats() {
 
-  const t = useTranslations()
+  const t = useTranslations("index")
 
   const stats: StatProps[] = [
     {

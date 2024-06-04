@@ -22,7 +22,7 @@ export default function Features01() {
     heightFix()
   }, [])
 
-  const t = useTranslations()
+  const t = useTranslations("index")
 
   return (
     <section className="relative bg-zinc-50">

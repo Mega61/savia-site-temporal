@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 
 export default function Header() {
 
-  const t = useTranslations()
+  const t = useTranslations("index")
 
   return (
     <header className="absolute top-2 md:top-6 w-full z-30">

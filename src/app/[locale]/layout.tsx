@@ -1,6 +1,8 @@
-import './css/style.css'
+import '../css/style.css'
 
 import { Inter, Inter_Tight } from 'next/font/google'
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -21,15 +23,23 @@ interface RootLayoutProps {
   locale: never;
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  locale
-}: RootLayoutProps) {
+  params: { locale }
+}: {
+  children: React.ReactNode;
+  params: { locale: string }
+}) {
+
+  const messages = await getMessages();
+
   return (
     <html lang={locale}>
       <body className={`${inter.variable} ${inter_tight.variable} font-inter antialiased bg-white text-zinc-900 tracking-tight`}>
         <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
-          {children}
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
         </div>
       </body>
     </html>
