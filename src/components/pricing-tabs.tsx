@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react'
 
 import Image from 'next/image'
 import PricingDecoration from '@/public/images/pricing-decoration.png'
-import Tooltip from '@/components/tooltip'
-import Accordion from '@/components/accordion'
+import Tooltip from '@/src/components/tooltip'
+import Accordion from '@/src/components/accordion'
 import { useTranslation } from '../app/utils/getTranslation'
 
 export default function PricingTabs() {

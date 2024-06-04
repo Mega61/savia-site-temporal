@@ -1,7 +1,7 @@
 "use client"
 
-import Counter from '@/components/counter'
-import { useTranslation } from '../app/utils/getTranslation'
+import Counter from '@/src/components/counter'
+import { useTranslations } from 'next-intl'
 interface StatProps {
   number: number
   suffix: string
@@ -10,18 +10,18 @@ interface StatProps {
 
 export default function Stats() {
 
-  const t = useTranslation()
+  const t = useTranslations()
 
   const stats: StatProps[] = [
     {
       number: 33,
       suffix: '%',
-      text: t.stat_1,
+      text: t('stat_1'),
     },
     {
       number: 350,
       suffix: '%',
-      text: t.stat_2,
+      text: t('stat_2'),
     }
     // {
     //   number: 1.5,
