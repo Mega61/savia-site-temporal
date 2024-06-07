@@ -1,5 +1,8 @@
 {
     "index": {
+        "header_features_link": "Features",
+        "header_benefits_link": "Benefits",
+        "header_pricing_link": "Pricing",
         "request_demo_btn": "Request Demo",
         "hero_text": "The robust OMS platform designed to streamline your omnichannel operations",
         "hero_begin_text": "The robust",
@@ -46,6 +49,14 @@
         "pricing_tier3_feature2_tooltip_text": "Access to all the features within the OMS including hand-on-hand support.",
         "cta_title_text": "Streamline Orders, Elevate ",
         "cta_title_highlight_text": "Sales",
-        "cta_sub_text": "Savia bridges the gap for small businesses, growing teams, and enterprises alike. Ready to transform your order management?"
+        "cta_sub_text": "Savia bridges the gap for small businesses, growing teams, and enterprises alike. Ready to transform your order management?",
+        "benefits_title_text": "Revolutionize Your Order Management System",
+        "benefits_sub_text": "Experience Efficiency, Strategic Inventory Management, and Superior Customer Satisfaction with Savia",
+        "benefits1_title_text": "Effortless Order Management",
+        "benefits1_sub_text": "Savia eliminates the chaos of managing orders from multiple sources with ease and accuracy. Transition from managing orders via WhatsApp or Excel to a unified, automated system that ensures nothing falls through the cracks.",
+        "benefits2_title_text": "Strategic Inventory Usage",
+        "benefits2_sub_text": "Utilize your inventory effectively across all channels. With Savia, inventory routing and allocation become strategic tools, turning stock into a competitive advantage and reducing inefficiencies.",
+        "benefits3_title_text": "Seamless Shopping Journeys",
+        "benefits3_sub_text": "Deliver a consistent and satisfying customer experience by efficiently managing orders across various channels. Keep customers informed and satisfied with timely updates and reliable fulfillment options."
     }
 }

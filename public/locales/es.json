@@ -1,5 +1,10 @@
 {
     "index": {
+        "title_text": "Características",
+        "description_text": "Características",
+        "header_features_link": "Características",
+        "header_benefits_link": "Beneficios",
+        "header_pricing_link": "Precios",
         "request_demo_btn": "Solicitar demo",
         "hero_text": "robusto Sistema de Gestión de Ordenes (OMS) diseñado para agilizar tus operaciones omnicanal",
         "hero_begin_text": "El robusto",
@@ -46,6 +51,14 @@
         "pricing_tier3_feature2_tooltip_text": "Acceso a todas las funciones del OMS, incluyendo soporte personalizado.",
         "cta_title_text": "Optimiza Pedidos, Aumenta las ",
         "cta_title_highlight_text": "Ventas",
-        "cta_sub_text": "Savia cierra la brecha para pequeñas empresas, equipos en crecimiento y grandes corporaciones por igual. ¿Listo para transformar la gestión de tus pedidos?"
+        "cta_sub_text": "Savia cierra la brecha para pequeñas empresas, equipos en crecimiento y grandes corporaciones por igual. ¿Listo para transformar la gestión de tus pedidos?",
+        "benefits_title_text": "Revoluciona Tu Sistema de Gestión de Pedidos",
+        "benefits_sub_text": "Experimenta Eficiencia, Gestión Estratégica de Inventario y Satisfacción Superior del Cliente con Savia",
+        "benefits1_title_text": "Operaciones Simplificadas",
+        "benefits1_sub_text": "Savia elimina el caos de gestionar pedidos desde múltiples fuentes con precisión y facilidad. Transforma la gestión de pedidos desde WhatsApp o Excel a un sistema unificado y automatizado que asegura que nada se pase por alto.",
+        "benefits2_title_text": "Tu inventario como activo estratégico",
+        "benefits2_sub_text": " Utiliza tu inventario de manera efectiva a través de todos los canales. Con Savia, la gestión y asignación de inventarios se convierten en herramientas estratégicas, convirtiendo el stock en una ventaja competitiva y reduciendo ineficiencias.",
+        "benefits3_title_text": "Experiencia de cliente sin fricciones",
+        "benefits3_sub_text": "Ofrece una experiencia del cliente consistente y satisfactoria gestionando eficientemente los pedidos a través de diversos canales. Mantén a los clientes informados y satisfechos con actualizaciones oportunas y opciones de cumplimiento confiables."
     }
 }
