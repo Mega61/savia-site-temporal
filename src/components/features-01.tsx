@@ -25,8 +25,8 @@ export default function Features01() {
   const t = useTranslations("index")
 
   return (
-    <section className="relative bg-zinc-50">
-      <div className="py-12 md:py-20">
+    <section id='features' className="relative bg-zinc-50">
+      <div className="py-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto text-center pb-12">
             <h2 className="font-inter-tight text-3xl md:text-4xl font-bold text-darkGreenSavia mb-4">{t('feature_title_text')}</h2>
