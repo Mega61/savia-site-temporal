@@ -18,10 +18,6 @@ const inter_tight = Inter_Tight({
   display: 'swap'
 })
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-  locale: never;
-}
 
 export default async function RootLayout({
   children,

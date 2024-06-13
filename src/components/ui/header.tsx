@@ -3,10 +3,33 @@ import Image from 'next/image'
 import Logo from '@/public/images/logo.png'
 import { useTranslations } from 'next-intl'
 import { Link as ScrollLink } from 'react-scroll'
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import React, { useState } from "react";
+
+interface Option {
+  country: string;
+  code: string;
+}
 
 export default function Header() {
 
   const t = useTranslations("index")
+
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const [isOptionsExpanded, setIsOptionsExpanded] = useState(false);
+
+  const options: Option[] = [
+    { country: "English", code: "en" },
+    { country: "Español", code: "es" },
+  ];
+
+  const setOption = (option: Option) => {
+    setIsOptionsExpanded(false);
+    router.push(`/${option.code}`);
+  };
 
   return (
     <header className="absolute top-2 md:top-6 w-full z-30">
@@ -36,6 +59,71 @@ export default function Header() {
                 </li>
                 <li className="ml-1">
                   <Link className="btn-sm text-zinc-100 bg-darkGreenSavia hover:bg-greenSavia w-full shadow" href="/request-demo">{t('request_demo_btn')}</Link>
+                </li>
+                <li>
+                  <div className="flex items-center justify-center bg-gray-100">
+                    <div className="ml-5 relative text-lg w-48">
+                      <button
+                        className="btn-sm w-min text-zinc-100 bg-darkGreenSavia hover:bg-greenSavia dark:bg-darkGreenSavia dark:hover:bg-greenSavia"
+                        onClick={() => setIsOptionsExpanded(!isOptionsExpanded)}
+                        onBlur={() => setIsOptionsExpanded(false)}
+                      >
+                        {t('header_language_selector')}
+                        <svg
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          className={`h-4 w-4 transform transition-transform duration-200 ease-in-out ${isOptionsExpanded ? "rotate-180" : "rotate-0"
+                            }`}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </button>
+                      <div
+                        className={`transition-transform duration-500 ease-custom ${!isOptionsExpanded
+                          ? "-translate-y-1/2 scale-y-0 opacity-0"
+                          : "translate-y-0 scale-y-100 opacity-100"
+                          }`}
+                      >
+                        <ul className="absolute left-0 right-0 w-min mb-4 flex flex-wrap bg-white divide-y rounded-lg shadow-lg overflow-hidden">
+                          {options.map((option, index) => (
+                            <li
+                              key={index}
+                              className="btn-sm transition-colors duration-300 hover:bg-gray-200 flex items-center cursor-pointer"
+                              onMouseDown={(e) => {
+                                e.preventDefault();
+                                setOption(option);
+                              }}
+                              onClick={() => setIsOptionsExpanded(false)}
+                            >
+                              &nbsp;&nbsp;{option.country}
+                              {pathname === `/${option.code}` && (
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  className=" h-7 text-greenSavia ml-auto"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={3}
+                                    d="M5 13l4 4L19 7"
+                                  />
+                                </svg>
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </li>
               </ul>
             </nav>
