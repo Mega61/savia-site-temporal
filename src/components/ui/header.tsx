@@ -15,7 +15,6 @@ interface Option {
 export default function Header() {
 
   const t = useTranslations("index")
-
   const router = useRouter();
   const pathname = usePathname();
 
@@ -31,6 +30,18 @@ export default function Header() {
     router.push(`/${option.code}`);
   };
 
+  const getCheckMarkClass = (optionCode: string) => {
+    return pathname === `/${optionCode}`
+      ? 'h-7 text-greenSavia ml-auto'
+      : 'h-7 text-white ml-auto';
+  };
+
+  const [open, setOpen] = React.useState(false);
+
+  const toggle = () => {
+    setOpen((prevState) => !prevState);
+  };
+
   return (
     <header className="absolute top-2 md:top-6 w-full z-30">
       <div className="px-4 sm:px-6">
@@ -44,8 +55,12 @@ export default function Header() {
                 <Image src={Logo} width={200} height={200} alt="Logo" />
               </Link>
             </div>
-            {/* Desktop navigation */}
+            {/*navigation */}
             <nav className="flex grow">
+              {/* Mobile burger menu*/}
+              <ul className='flex grow justify-end flex-wrap items-center'>
+                <HamburgerMenuToggler></HamburgerMenuToggler>
+              </ul>
               {/* Desktop sign in links */}
               <ul className="hidden sm:flex grow justify-end flex-wrap items-center">
                 <li>
@@ -94,7 +109,7 @@ export default function Header() {
                           {options.map((option, index) => (
                             <li
                               key={index}
-                              className="btn-sm transition-colors duration-300 hover:bg-gray-200 flex items-center cursor-pointer"
+                              className="btn-sm transition-colors duration-300 hover:bg-gray-200 flex items-center cursor-pointer flex-grow"
                               onMouseDown={(e) => {
                                 e.preventDefault();
                                 setOption(option);
@@ -102,22 +117,22 @@ export default function Header() {
                               onClick={() => setIsOptionsExpanded(false)}
                             >
                               &nbsp;&nbsp;{option.country}
-                              {pathname === `/${option.code}` && (
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                  className=" h-7 text-greenSavia ml-auto"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={3}
-                                    d="M5 13l4 4L19 7"
-                                  />
-                                </svg>
-                              )}
+
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                className={getCheckMarkClass(option.code)}
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={3}
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+
                             </li>
                           ))}
                         </ul>
@@ -132,4 +147,23 @@ export default function Header() {
       </div>
     </header>
   )
+
+
+  interface HamburgerMenuTogglerProps {
+    toggle: () => void;
+  }
+
+  function HamburgerMenuToggler({ toggle }): HamburgerMenuTogglerProps {
+    return (
+      <button
+        type="button"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        className="float-right pt-1.5 text-3xl focus:outline-none focus:shadow"
+        onClick={toggle}
+      >
+        &#8801;
+      </button>
+    );
+  }
 }
