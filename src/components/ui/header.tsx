@@ -58,8 +58,21 @@ export default function Header() {
             {/*navigation */}
             <nav className="flex grow">
               {/* Mobile burger menu*/}
-              <ul className='flex grow justify-end flex-wrap items-center'>
-                <HamburgerMenuToggler></HamburgerMenuToggler>
+              <ul className='flex sm:hidden grow justify-end flex-wrap items-center'>
+                <HamburgerMenuToggler toggle={toggle}></HamburgerMenuToggler>
+                <HamburgerMenuCollapse open={open}>
+                  <HamburgerMenuNav>
+                    <HamburgerMenuItem>
+                      <ScrollLink to="features" smooth={true} duration={500} className="cursor-pointer text-sm font-medium text-greySavia hover:text-darkGreenSavia px-3 lg:px-5 py-2 flex items-center transition">{t('header_features_link')}</ScrollLink>
+                    </HamburgerMenuItem>
+                    <HamburgerMenuItem>
+                      <ScrollLink to="benefits" smooth={true} duration={500} className="cursor-pointer text-sm font-medium text-greySavia hover:text-darkGreenSavia px-3 lg:px-5 py-2 flex items-center transition">{t('header_benefits_link')}</ScrollLink>
+                    </HamburgerMenuItem>
+                    <HamburgerMenuItem>
+                      <ScrollLink to="pricing" smooth={true} duration={500} className="cursor-pointer text-sm font-medium text-greySavia hover:text-darkGreenSavia px-3 lg:px-5 py-2 flex items-center transition">{t('header_pricing_link')}</ScrollLink>
+                    </HamburgerMenuItem>
+                  </HamburgerMenuNav>
+                </HamburgerMenuCollapse>
               </ul>
               {/* Desktop sign in links */}
               <ul className="hidden sm:flex grow justify-end flex-wrap items-center">
@@ -149,11 +162,7 @@ export default function Header() {
   )
 
 
-  interface HamburgerMenuTogglerProps {
-    toggle: () => void;
-  }
-
-  function HamburgerMenuToggler({ toggle }): HamburgerMenuTogglerProps {
+  function HamburgerMenuToggler({ toggle }: { toggle: any }) {
     return (
       <button
         type="button"
@@ -165,5 +174,28 @@ export default function Header() {
         &#8801;
       </button>
     );
+  }
+
+
+  function HamburgerMenuCollapse({ children, open }: { children: React.ReactNode, open: boolean }) {
+    const ref = React.useRef(null);
+
+    const inlineStyle = open
+      ? { height: ref.current?.scrollHeight }
+      : { height: 0, visibility: 'hidden', opacity: 0 };
+
+    return (
+      <div className="transition-height ease duration-300" style={inlineStyle} ref={ref}>
+        {children}
+      </div>
+    );
+  }
+
+  function HamburgerMenuNav({ children }: { children: React.ReactNode }) {
+    return <ul className="block pl-0 mb-0">{children}</ul>;
+  }
+
+  function HamburgerMenuItem({ children }: { children: React.ReactNode }) {
+    return <li>{children}</li>;
   }
 }
