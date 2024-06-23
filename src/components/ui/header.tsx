@@ -72,71 +72,69 @@ export default function Header() {
                       <ScrollLink to="pricing" smooth={true} duration={500} onClick={toggle} className="cursor-pointer text-sm font-medium text-whiteSavia hover:text-greenSavia px-3 lg:px-5 py-2 flex items-center transition">{t('header_pricing_link')}</ScrollLink>
                     </HamburgerMenuItem>
                     <HamburgerMenuItem>
-                      <li>
-                        <div className="flex items-center justify-center ">
-                          <div className="relative text-lg w-48">
-                            <button
-                              className="btn-sm w-min px-3 lg:px-5 py-2 text-zinc-100 bg-darkGreenSavia hover:bg-greenSavia dark:bg-darkGreenSavia dark:hover:bg-greenSavia"
-                              onClick={() => setIsOptionsExpanded(!isOptionsExpanded)}
-                              onBlur={() => setIsOptionsExpanded(false)}
-                            >
-                              {t('header_language_selector')}
-                              <svg
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                className={`h-4 w-4 transform transition-transform duration-200 ease-in-out ${isOptionsExpanded ? "rotate-180" : "rotate-0"
-                                  }`}
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M19 9l-7 7-7-7"
-                                />
-                              </svg>
-                            </button>
-                            <div
-                              className={`transition-transform duration-500 ease-custom ${!isOptionsExpanded
-                                ? "-translate-y-1/2 scale-y-0 opacity-0"
-                                : "translate-y-0 scale-y-100 opacity-100"
+                      <div className="flex items-center justify-center ">
+                        <div className="relative text-lg w-48">
+                          <button
+                            className="btn-sm w-min px-3 lg:px-5 py-2 text-zinc-100 bg-darkGreenSavia hover:bg-greenSavia dark:bg-darkGreenSavia dark:hover:bg-greenSavia"
+                            onClick={() => setIsOptionsExpanded(!isOptionsExpanded)}
+                            onBlur={() => setIsOptionsExpanded(false)}
+                          >
+                            {t('header_language_selector')}
+                            <svg
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              className={`h-4 w-4 transform transition-transform duration-200 ease-in-out ${isOptionsExpanded ? "rotate-180" : "rotate-0"
                                 }`}
                             >
-                              <ul className="absolute left-0 right-0 w-min mb-4 flex flex-wrap bg-white divide-y rounded-lg shadow-lg overflow-hidden">
-                                {options.map((option, index) => (
-                                  <li
-                                    key={index}
-                                    className="btn-sm transition-colors duration-300 hover:bg-gray-200 flex items-center cursor-pointer flex-grow"
-                                    onMouseDown={(e) => {
-                                      e.preventDefault();
-                                      setOption(option);
-                                    }}
-                                    onClick={() => setIsOptionsExpanded(false)}
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                              />
+                            </svg>
+                          </button>
+                          <div
+                            className={`transition-transform duration-500 ease-custom ${!isOptionsExpanded
+                              ? "-translate-y-1/2 scale-y-0 opacity-0"
+                              : "translate-y-0 scale-y-100 opacity-100"
+                              }`}
+                          >
+                            <ul className="absolute left-0 right-0 w-min mb-4 flex flex-wrap bg-white divide-y rounded-lg shadow-lg overflow-hidden">
+                              {options.map((option, index) => (
+                                <li
+                                  key={index}
+                                  className="btn-sm transition-colors duration-300 hover:bg-gray-200 flex items-center cursor-pointer flex-grow"
+                                  onMouseDown={(e) => {
+                                    e.preventDefault();
+                                    setOption(option);
+                                  }}
+                                  onClick={() => setIsOptionsExpanded(false)}
+                                >
+                                  &nbsp;&nbsp;{option.country}
+
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    className={getCheckMarkClass(option.code)}
                                   >
-                                    &nbsp;&nbsp;{option.country}
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth={3}
+                                      d="M5 13l4 4L19 7"
+                                    />
+                                  </svg>
 
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      fill="none"
-                                      viewBox="0 0 24 24"
-                                      stroke="currentColor"
-                                      className={getCheckMarkClass(option.code)}
-                                    >
-                                      <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={3}
-                                        d="M5 13l4 4L19 7"
-                                      />
-                                    </svg>
-
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
+                                </li>
+                              ))}
+                            </ul>
                           </div>
                         </div>
-                      </li>
+                      </div>
                     </HamburgerMenuItem>
                     <HamburgerMenuItem>
                       <button
