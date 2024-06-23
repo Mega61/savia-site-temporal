@@ -4,6 +4,7 @@ import Features02 from '@/src/components/features-02'
 import Features03 from '@/src/components/features-03'
 import PricingTabs from '@/src/components/pricing-tabs'
 import Testimonials from '@/src/components/testimonials'
+import ScrollToTop from '@/src/components/ui/scroll-to-top'
 import Cta from '@/src/components/cta'
 
 export const metadata = {
@@ -19,6 +20,7 @@ export default function Home() {
       <Features02 />
       <PricingTabs />
       <Cta />
+      <ScrollToTop />
     </>
   )
 }
